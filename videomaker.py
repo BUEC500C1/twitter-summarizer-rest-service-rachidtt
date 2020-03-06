@@ -7,6 +7,7 @@ import threading
 import queue
 from multiprocessing import Queue
 from queue import Empty
+import shutil #delete images folder with all its content
 
 
 class WorkerThread(threading.Thread):
@@ -25,7 +26,9 @@ class WorkerThread(threading.Thread):
 				return
 
 			convertToVideo(work)
-			print('Thread '+str(self.arg)+' is done.')
+			self.q.task_done()
+		print('Thread '+str(self.arg)+' is done.')
+
 			#print('Thread '+str(self.ident)+' is done.')
 
 
@@ -75,14 +78,14 @@ def convertToImage(User,Text,number,day):
 
 
 def convertToVideo(path):
-
-
 	stream = ffmpeg.input(r'tweetimages/'+path+'/*.png', pattern_type='glob', framerate=0.33)
 	#stream = ffmpeg.input(r'tweetimages/*.png', pattern_type='glob', framerate=1)
 	#stream = ffmpeg.output(stream,'tweetimages/movie1.mp4')
 	stream = ffmpeg.output(stream,'Videos/'+path+'.mp4',loglevel="quiet")
 	stream = ffmpeg.overwrite_output(stream)
 	ffmpeg.run(stream)
+	shutil.rmtree('tweetimages/'+path)
+
 
 
 if __name__ == '__main__': #just some testing

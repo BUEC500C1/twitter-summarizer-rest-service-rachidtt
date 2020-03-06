@@ -2,3 +2,5 @@ tweepy
 ffmpeg-python
 Pillow
 configparser
+Flask
+Flask-RESTful
