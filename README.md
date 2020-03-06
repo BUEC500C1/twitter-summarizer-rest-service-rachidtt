@@ -16,12 +16,12 @@ The process is similar to the twitter video summarizer, (https://github.com/BUEC
 
 The server runs Flask on an AWS EC2 micro-instance that uses Ubuntu.
 
-git clone https://github.com/BUEC500C1/twitter-summarizer-rest-service-rachidtt.git
-sudo apt install python3-pip
-pip3 install -r requirements.txt
-python3 api.py
-add keys
-mkdir tweetimages
-install ffmpeg
-python3 api.py
+git clone https://github.com/BUEC500C1/twitter-summarizer-rest-service-rachidtt.git  
+sudo apt install python3-pip  
+pip3 install -r requirements.txt  
+python3 api.py  
+add keys  
+mkdir tweetimages  
+install ffmpeg  
+python3 api.py  
 
