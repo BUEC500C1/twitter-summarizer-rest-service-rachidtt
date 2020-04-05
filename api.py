@@ -21,7 +21,14 @@ class twittervid(Resource):
 			
 			return send_file(zipfile,as_attachment=True)
 
+
+
+class homepage(Resource):
+	def get(self):
+			return 'Alive, please pass arguments to get the twitter video'
+
 api.add_resource(twittervid, '/twittervideo') 
+api.add_resource(homepage, '/')
 
 if __name__ == '__main__':
 	#app.run(debug=True)
